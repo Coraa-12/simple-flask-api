@@ -32,7 +32,8 @@ jobs:
       # Executes pytest. If tests fail, the workflow stops here.
       - name: Run tests with pytest
         run: |
-          pytest tests/
+          export PYTHONPATH=$PYTHONPATH:. # Add current directory to Python's import path
+          pytest tests/                 # Now run pytest
 
       # ---- EXISTING DOCKER STEPS ----
       # Only run if pytest passes above
